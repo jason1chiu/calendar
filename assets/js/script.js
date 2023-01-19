@@ -26,7 +26,6 @@ $(function () {
 
   $('.time-block').each(function() {
     var presentHour = dayjs().format("HH");
-    console.log(presentHour);
     var time = $(this).attr('id').split('-')[1];
 
     if (time < presentHour) {
