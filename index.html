@@ -14,6 +14,9 @@
       integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf"
       crossorigin="anonymous"
     />
+
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
+
     <link
       href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap"
       rel="stylesheet"
@@ -27,6 +30,10 @@
       <h1 class="display-3">Work Day Scheduler</h1>
       <p class="lead">A simple calendar app for scheduling your work day</p>
       <p id="currentDay" class="lead"></p>
+      <p id="currentTime" class="lead"></p>
+
+      <a class="weatherwidget-io" href="https://forecast7.com/en/43d65n79d38/toronto/" data-label_1="TORONTO" data-label_2="WEATHER" data-font="Roboto Slab" data-icons="Climacons Animated" data-mode="Current" data-days="3" data-theme="pure" >TORONTO WEATHER</a>
+
     </header>
     <div class="container-lg px-5">
       <!-- Use class for "past", "present", and "future" to apply styles to the
@@ -39,10 +46,12 @@
         code is implemented.
         -->
 
+      <div class="row" id="progressbar"></div>
+
       <!-- Example of a past time block. The "past" class adds a gray background color. -->
-      <div id="hour-09" class="row time-block">
-        <div class="col-2 col-md-1 hour text-center py-3">9AM</div>
-        <textarea class="col-8 col-md-10 description" rows="3"> </textarea>
+      <div id="hour-9" class="row time-block mt-4">
+        <div class="col-2 col-md-1 hour text-center py-3">9 AM</div>
+        <textarea class="col-8 col-md-10 description" rows="3"></textarea>
         <button class="btn saveBtn col-2 col-md-1" aria-label="save">
           <i class="fas fa-save" aria-hidden="true"></i>
         </button>
@@ -50,7 +59,7 @@
 
       <!-- Example of a a present time block. The "present" class adds a red background color. -->
       <div id="hour-10" class="row time-block">
-        <div class="col-2 col-md-1 hour text-center py-3">10AM</div>
+        <div class="col-2 col-md-1 hour text-center py-3">10 AM</div>
         <textarea class="col-8 col-md-10 description" rows="3"> </textarea>
         <button class="btn saveBtn col-2 col-md-1" aria-label="save">
           <i class="fas fa-save" aria-hidden="true"></i>
@@ -59,7 +68,7 @@
 
       <!-- Example of a future time block. The "future" class adds a green background color. -->
       <div id="hour-11" class="row time-block">
-        <div class="col-2 col-md-1 hour text-center py-3">11AM</div>
+        <div class="col-2 col-md-1 hour text-center py-3">11 AM</div>
         <textarea class="col-8 col-md-10 description" rows="3"> </textarea>
         <button class="btn saveBtn col-2 col-md-1" aria-label="save">
           <i class="fas fa-save" aria-hidden="true"></i>
@@ -67,7 +76,7 @@
       </div>
 
       <div id="hour-12" class="row time-block">
-        <div class="col-2 col-md-1 hour text-center py-3">12PM</div>
+        <div class="col-2 col-md-1 hour text-center py-3">12 PM</div>
         <textarea class="col-8 col-md-10 description" rows="3"> </textarea>
         <button class="btn saveBtn col-2 col-md-1" aria-label="save">
           <i class="fas fa-save" aria-hidden="true"></i>
@@ -75,7 +84,7 @@
       </div>
 
       <div id="hour-13" class="row time-block">
-        <div class="col-2 col-md-1 hour text-center py-3">01PM</div>
+        <div class="col-2 col-md-1 hour text-center py-3">01 PM</div>
         <textarea class="col-8 col-md-10 description" rows="3"> </textarea>
         <button class="btn saveBtn col-2 col-md-1" aria-label="save">
           <i class="fas fa-save" aria-hidden="true"></i>
@@ -83,7 +92,7 @@
       </div>
 
       <div id="hour-14" class="row time-block">
-        <div class="col-2 col-md-1 hour text-center py-3">02PM</div>
+        <div class="col-2 col-md-1 hour text-center py-3">02 PM</div>
         <textarea class="col-8 col-md-10 description" rows="3"> </textarea>
         <button class="btn saveBtn col-2 col-md-1" aria-label="save">
           <i class="fas fa-save" aria-hidden="true"></i>
@@ -91,7 +100,7 @@
       </div>
 
       <div id="hour-15" class="row time-block">
-        <div class="col-2 col-md-1 hour text-center py-3">03PM</div>
+        <div class="col-2 col-md-1 hour text-center py-3">03 PM</div>
         <textarea class="col-8 col-md-10 description" rows="3"> </textarea>
         <button class="btn saveBtn col-2 col-md-1" aria-label="save">
           <i class="fas fa-save" aria-hidden="true"></i>
@@ -99,7 +108,7 @@
       </div>
 
       <div id="hour-16" class="row time-block">
-        <div class="col-2 col-md-1 hour text-center py-3">04PM</div>
+        <div class="col-2 col-md-1 hour text-center py-3">04 PM</div>
         <textarea class="col-8 col-md-10 description" rows="3"> </textarea>
         <button class="btn saveBtn col-2 col-md-1" aria-label="save">
           <i class="fas fa-save" aria-hidden="true"></i>
@@ -107,7 +116,7 @@
       </div>
 
       <div id="hour-17" class="row time-block">
-        <div class="col-2 col-md-1 hour text-center py-3">05PM</div>
+        <div class="col-2 col-md-1 hour text-center py-3">05 PM</div>
         <textarea class="col-8 col-md-10 description" rows="3"> </textarea>
         <button class="btn saveBtn col-2 col-md-1" aria-label="save">
           <i class="fas fa-save" aria-hidden="true"></i>
@@ -116,12 +125,16 @@
 
 
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+
+    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
     
     <script
       src="https://cdn.jsdelivr.net/npm/dayjs@1.11.3/dayjs.min.js"
       integrity="sha256-iu/zLUB+QgISXBLCW/mcDi/rnf4m4uEDO0wauy76x7U="
       crossorigin="anonymous"
     ></script>
+
+    <script src="./assets/js/weather.js"></script>
 
     <script src="./assets/js/script.js"></script>
   </body>
