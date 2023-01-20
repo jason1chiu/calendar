@@ -57,3 +57,11 @@ textarea {
   font-size: 20px;
   transition: all 0.3s ease-in-out;
 }
+
+/* Bonus Effect */
+.ui-widget-header {
+  background: #cedc98;
+  border: 1px solid #DDDDDD;
+  color: #333333;
+  font-weight: bold;
+}

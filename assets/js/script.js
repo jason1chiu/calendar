@@ -42,7 +42,7 @@ $(function () {
   // TODO: Add code to get any user input that was saved in localStorage and set
   // the values of the corresponding textarea elements. HINT: How can the id
   // attribute of each time-block be used to do this?
-  
+    
     for (var i = 9; i < 17; i++) {
       var dailyPlan = localStorage.getItem(i);
       $('#hour-'+i).children('.description').val(dailyPlan);
@@ -52,4 +52,19 @@ $(function () {
     var today = dayjs();
     $('#currentDay').text(today.format('dddd, MMM D, YYYY'));
 
+  // ------------------ EXTRAS -----------------
+
+  var currentTime = dayjs().format("HH:mm:ss a");
+  $('#currentTime').text(currentTime);
+
+  $(function() {
+    if (dayjs().hour() >= 9 && dayjs.hour() <= 17) {
+      var presentHour = dayjs().format("HH");
+    }
+    $('#progressbar').progressbar({
+      value: presentHour/17 * 100,
+    });
+  });
+
 });
+
