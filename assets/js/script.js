@@ -49,8 +49,6 @@ $(function () {
     for (var i = 9; i <= 17; i++) {
       var dailyPlan = localStorage.getItem(i);
       $('#hour-'+i).children('.description').val(dailyPlan);
-
-      console.log($('#hour-'+i));
     }
 
     // TODO: Add code to display the current date in the header of the page.
@@ -72,10 +70,16 @@ $(function () {
 
       presentHourString = dayjs().format("HH");
       presentHour = parseInt(presentHourString);
+
+      var fromTimeString = dayjs().hour(9);
+      var toTimeString = dayjs().hour(17);
+
+      var workTimeDifferenceString = toTimeString.diff(fromTimeString, "hours");
+      var workTimeDifference = parseInt(workTimeDifferenceString);
     }
-    
+
     $('#progressbar').progressbar({
-      value: presentHour/17 * 100,
+      value: (presentHour - workTimeDifference - 1)/workTimeDifference * 100,
     });
   });
 
