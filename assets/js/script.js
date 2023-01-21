@@ -24,9 +24,12 @@ $(function () {
   // current hour in 24-hour time?
 
   $('.time-block').each(function() {
-    var presentHour = dayjs().format("HH");
-    var time = $(this).attr('id').split('-')[1];
+    var presentHourString = dayjs().format("HH");
+    var timeString = $(this).attr('id').split('-')[1];
 
+    var time = parseInt(timeString);
+    var presentHour = parseInt(presentHourString);
+ 
     if (time < presentHour) {
       $(this).addClass('past');
       $(this).removeClass('present future');
@@ -43,9 +46,11 @@ $(function () {
   // the values of the corresponding textarea elements. HINT: How can the id
   // attribute of each time-block be used to do this?
     
-    for (var i = 9; i < 17; i++) {
+    for (var i = 9; i <= 17; i++) {
       var dailyPlan = localStorage.getItem(i);
       $('#hour-'+i).children('.description').val(dailyPlan);
+
+      console.log($('#hour-'+i));
     }
 
     // TODO: Add code to display the current date in the header of the page.
@@ -58,9 +63,17 @@ $(function () {
   $('#currentTime').text(currentTime);
 
   $(function() {
-    if (dayjs().hour() >= 9 && dayjs.hour() <= 17) {
-      var presentHour = dayjs().format("HH");
+    var hour = parseInt(dayjs().hour());
+
+    var presentHourString = "";
+    var presentHour = 0;
+
+    if (hour >= 9 && hour <= 17) {
+
+      presentHourString = dayjs().format("HH");
+      presentHour = parseInt(presentHourString);
     }
+    
     $('#progressbar').progressbar({
       value: presentHour/17 * 100,
     });
