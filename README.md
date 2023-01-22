@@ -32,10 +32,9 @@ WHEN I refresh the page
 THEN the saved events persist
 ```
 
-```md
 GitHub Page: https://jason1chiu.github.io/calendar/
 GitHub Repo: https://github.com/jason1chiu/calendar/
-```
+
 
 ![jason1chiu github io_calendar_](https://user-images.githubusercontent.com/119711904/213932370-b49fa23e-e41e-493d-a0c3-32ee2bd4662b.png)
 
