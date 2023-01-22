@@ -58,7 +58,7 @@ $(function () {
 
   // ------------------ EXTRAS -----------------
 
-  // Show current time of day
+  // Show current time of day and place it underneath the date
   var currentTime = dayjs().format("HH:mm:ss a");
   $('#currentTime').text(currentTime);
 
