@@ -36,17 +36,10 @@
 
     </header>
     <div class="container-lg px-5">
-      <!-- Use class for "past", "present", and "future" to apply styles to the
-        time-block divs accordingly. The javascript will need to do this by
-        adding/removing these classes on each div by comparing the hour in the
-        id to the current hour. The html provided below is meant to be an example
-        demonstrating how the css provided can be leveraged to create the
-        desired layout and colors. The html below should be removed or updated
-        in the finished product. Remember to delete this comment once the
-        code is implemented.
-        -->
 
-      <div id="progressbar"></div>
+      <div class="progress">
+        <div class="progress-bar" id="progressbar" role="progressbar" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"><span id="progressCompleted"></span></div> <!--  -->
+      </div>
       
       <!-- Example of a past time block. The "past" class adds a gray background color. -->
       <div id="hour-9" class="row time-block mt-4">
