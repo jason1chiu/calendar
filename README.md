@@ -32,7 +32,7 @@ WHEN I refresh the page
 THEN the saved events persist
 ```
 
-GitHub Page: https://jason1chiu.github.io/calendar/
+GitHub Page: https://jason1chiu.github.io/calendar/ <br>
 GitHub Repo: https://github.com/jason1chiu/calendar/
 
 
