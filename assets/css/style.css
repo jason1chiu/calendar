@@ -58,10 +58,14 @@ textarea {
   transition: all 0.3s ease-in-out;
 }
 
-/* Bonus Effect */
-.ui-widget-header {
-  background: #cedc98;
-  border: 1px solid #DDDDDD;
-  color: #333333;
-  font-weight: bold;
+/* ---------- EXTRA PRACTICE -------- */
+/* change height of the bar */
+.progress {
+  height: 2rem;
+}
+
+/* change text color and background color */
+.progress-bar {
+  color: black;
+  background-color: yellow;
 }

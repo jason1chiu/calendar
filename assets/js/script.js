@@ -57,15 +57,25 @@ $(function () {
 
   // ------------------ EXTRAS -----------------
 
+  // Show current time of day
   var currentTime = dayjs().format("HH:mm:ss a");
   $('#currentTime').text(currentTime);
 
+  // function to create and style the progress bar about the work flow
   $(function() {
+    // get the hour of day and change it to integer type
     var hour = parseInt(dayjs().hour());
 
+    // set up of empty strings for later usage
     var presentHourString = "";
-    var presentHour = 0;
+    var fromTimeString = "";
+    var toTimeString = "";
 
+    var workTimeDifference = 0;
+    var presentHour = 0;
+    var progressCompleted = 0;
+
+    // Using a condition to compute the time difference between end hour and current hour during the work hours
     if (hour >= 9 && hour <= 17) {
 
       presentHourString = dayjs().format("HH");
@@ -78,9 +88,18 @@ $(function () {
       var workTimeDifference = parseInt(workTimeDifferenceString);
     }
 
-    $('#progressbar').progressbar({
-      value: (presentHour - workTimeDifference - 1)/workTimeDifference * 100,
-    });
+    // Added labels to show the percentage of work hours have gone and extra comments
+    var progressCompleted = (presentHour - workTimeDifference - 1)/workTimeDifference * 100;
+    $('.progress-bar').css('width', progressCompleted + '%');
+    if (progressCompleted <= 25) {
+      $('.progress-bar').text(progressCompleted + '% Completed Only 😭!');
+    } else if (progressCompleted <= 50) {
+      $('.progress-bar').text(progressCompleted + '% Almost time for lunch break 🤤!');
+    } else if (progressCompleted <= 75) {
+      $('.progress-bar').text(progressCompleted + '% Almost finshed work 🙂!');
+    } else {
+      $('.progress-bar').text(progressCompleted + '% Argh, now I have to go through rush hour 😭!');
+    }
   });
 
 });
