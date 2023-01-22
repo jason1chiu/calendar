@@ -37,8 +37,6 @@ GitHub Page: https://jason1chiu.github.io/calendar/
 GitHub Repo: https://github.com/jason1chiu/calendar/
 ```
 
-![05-third-party-apis-homework-demo](https://user-images.githubusercontent.com/119711904/213932369-469d10e7-6a67-4538-8f4c-856959105b8b.gif)
+[calendar.gif.zip](https://github.com/jason1chiu/calendar/files/10475131/calendar.gif.zip)
 ![jason1chiu github io_calendar_](https://user-images.githubusercontent.com/119711904/213932370-b49fa23e-e41e-493d-a0c3-32ee2bd4662b.png)
-
-
 
