@@ -79,18 +79,18 @@ $(function () {
     }
 
     // Added labels to show the percentage of work hours have gone and extra comments
-    var progressCompleted = (presentHour - workTimeDifference - 1)/workTimeDifference * 100;
-    $('.progress-bar').css('width', progressCompleted + '%');
-    if (progressCompleted <= 25) {
-      $('.progress-bar').text(progressCompleted + '% Completed Only 😭!');
-    } else if (progressCompleted <= 50) {
-      $('.progress-bar').text(progressCompleted + '% Almost time for lunch break 🤤!');
-    } else if (progressCompleted <= 75) {
-      $('.progress-bar').text(progressCompleted + '% Almost finshed work 🙂!');
-    } else {
-      $('.progress-bar').text(progressCompleted + '% Argh, now I have to go through rush hour 😭!');
-    }
+    if (presentHour >= 9 && presentHour <= 17) {
+      var progressCompleted = (presentHour - workTimeDifference - 1)/workTimeDifference * 100;
+      $('.progress-bar').css('width', progressCompleted + '%');
+        if (progressCompleted <= 25) {
+          $('.progress-bar').text(progressCompleted + '% Completed Only 😭!');
+        } else if (progressCompleted <= 50) {
+          $('.progress-bar').text(progressCompleted + '% Almost time for lunch break 🤤!');
+        } else if (progressCompleted <= 75) {
+          $('.progress-bar').text(progressCompleted + '% Almost finshed work 🙂!');
+        } else {
+          $('.progress-bar').text(progressCompleted + '% Argh, now I have to go through rush hour 😭!');
+        }
+    };
   });
-
 });
-
